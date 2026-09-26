@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#071014">
-<title>CEH — Research Intelligence Platform</title>
+<title>CEH — Scientific Research OS</title>
 <style>
 :root{
  --bg:#060b0e;--surface:#0b1318;--surface2:#0f1b21;--surface3:#13242b;
@@ -91,7 +91,42 @@ h1{font-size:clamp(27px,3vw,40px);line-height:1.05;margin:7px 0 9px;letter-spaci
 }
 @media(max-width:480px){.stats{grid-template-columns:1fr}.top-actions .btn:first-child{display:none}}
 </style>
-</head>
+<style>
+/* CEH PRO LAYER */
+:root{--cyan:#66eee7;--violet:#9c8cff;--gold:#e5c879;--green:#6de3a8;--red:#ff8f98}
+body{background:#05090c}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(102,238,231,.018) 1px,transparent 1px),linear-gradient(rgba(102,238,231,.014) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(to bottom,#000,transparent 90%);z-index:-1}
+.sidebar{background:rgba(5,12,16,.96)}
+.logo{background:radial-gradient(circle at 30% 20%,rgba(102,238,231,.2),transparent 55%),#09161b}
+.nav button{position:relative}
+.nav button.active:after{content:"";position:absolute;right:10px;width:4px;height:4px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.main{max-width:1680px}
+.card,.panel{transition:transform .18s,border-color .18s,box-shadow .18s}
+.card:hover{transform:translateY(-2px);border-color:#2b4b53;box-shadow:0 24px 70px rgba(0,0,0,.35)}
+.panel:hover{border-color:#29454d}
+.stats{grid-template-columns:repeat(4,minmax(190px,1fr))}
+.card-value{font-variant-numeric:tabular-nums}
+.visual{background:
+ radial-gradient(circle at 54% 48%,rgba(102,238,231,.075),transparent 22%),
+ linear-gradient(145deg,rgba(12,27,33,.98),rgba(6,14,18,.98))}
+.visual .panel-title{position:relative;z-index:2}
+.visual:after{content:"";position:absolute;left:8%;right:8%;bottom:43px;height:1px;background:linear-gradient(90deg,transparent,#27444b,transparent)}
+.core{animation:corePulse 4s ease-in-out infinite}
+.horizon{animation:horizonPulse 3.5s ease-in-out infinite}
+@keyframes corePulse{0%,100%{box-shadow:0 0 35px rgba(102,238,231,.1),inset 0 0 22px rgba(102,238,231,.06)}50%{box-shadow:0 0 70px rgba(102,238,231,.22),inset 0 0 30px rgba(102,238,231,.12)}}
+@keyframes horizonPulse{0%,100%{opacity:.65}50%{opacity:1}}
+.ai-panel{background:linear-gradient(145deg,rgba(13,31,37,.98),rgba(8,16,21,.98));position:relative;overflow:hidden}
+.ai-panel:before{content:"";position:absolute;width:220px;height:220px;right:-100px;top:-110px;border-radius:50%;border:1px solid rgba(102,238,231,.13);box-shadow:0 0 0 30px rgba(102,238,231,.025),0 0 0 60px rgba(102,238,231,.015)}
+.ai-panel>*{position:relative;z-index:1}
+.ai-orb{animation:aiPulse 2.4s ease-in-out infinite}
+@keyframes aiPulse{50%{box-shadow:0 0 32px var(--cyan)}}
+.priority{background:linear-gradient(145deg,#0a1a20,#071217)}
+.flow span{transition:.15s}.flow span:hover{border-color:#35646b;color:var(--cyan);transform:translateY(-1px)}
+.section-copy{line-height:1.75}
+.table tbody tr{transition:background .15s}.table tbody tr:hover{background:rgba(102,238,231,.025)}
+.table td:first-child{font-weight:650;color:#dcebea}
+.badge{box-shadow:0 0 24px rgba(109,227,168,.06)}
+</style></head>
 <body>
 <div class="app">
 <aside class="sidebar" id="sidebar">
@@ -112,8 +147,8 @@ h1{font-size:clamp(27px,3vw,40px);line-height:1.05;margin:7px 0 9px;letter-spaci
 
 <main class="main">
  <div class="topbar">
-  <div class="breadcrumb">CEH / Research Workspace</div>
-  <div class="top-actions"><button class="btn mobile-menu" id="menu">Menu</button><button class="btn" onclick="location.reload()">Refresh</button></div>
+  <div class="breadcrumb">CEH / Research Workspace / Scientific Intelligence</div>
+  <div class="top-actions"><button class="btn mobile-menu" id="menu">Menu</button><button class="btn" onclick="openTab("overview")">Overview</button><button class="btn" onclick="location.reload()">Refresh</button></div>
  </div>
 
  <header class="hero-head">
