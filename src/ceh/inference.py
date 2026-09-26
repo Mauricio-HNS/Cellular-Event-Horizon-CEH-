@@ -80,7 +80,7 @@ def paired_auc_permutation(
         swap = rng.integers(0, 2, size=len(y)).astype(bool)
         perm_base = np.where(swap, full, base)
         perm_full = np.where(swap, base, full)
-        delta = auroc(y, perm_full) - auroc(y, perm_base)
+        delta = auroc(perm_full, y) - auroc(perm_base, y)
         if delta >= observed:
             extreme += 1
     return PermutationResult(observed, float((extreme + 1) / (replicates + 1)), replicates)
