@@ -49,9 +49,16 @@ def _temporal_series(x):
 
 def _early_warning_series(x):
     values = np.linalg.norm(x, axis=1)
+    if len(values) < 5:
+        return np.zeros(len(values), dtype=float)
     variance = rolling_variance(values, window=5)
     autocorrelation = rolling_autocorrelation(values, window=5)
-    return np.nan_to_num(variance + autocorrelation, nan=0.0, posinf=0.0, neginf=0.0)
+    signal = np.nan_to_num(
+        variance + autocorrelation, nan=0.0, posinf=0.0, neginf=0.0
+    )
+    out = np.zeros(len(values), dtype=float)
+    out[4:] = signal
+    return out
 
 
 def _ceh_series(x):
