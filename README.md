@@ -22,6 +22,38 @@
 
 ---
 
+## ⚛️ Physical and nuclear-physics interface
+
+The research architecture is being extended downward into physical scales of biological organization: radiation track structure, microdosimetry, stochastic DNA damage, chromatin mechanics and nuclear phase behavior.
+
+This is not a claim that atomic nuclear physics and cell-nucleus biology are the same problem. The connection is through radiation physics, biophysics, statistical physics and multiscale modelling.
+
+```
+PHYSICAL PERTURBATION
+        ↓
+ENERGY DEPOSITION / MICRODOSIMETRY
+        ↓
+DNA + CHROMATIN RESPONSE
+        ↓
+NUCLEAR STATE
+        ↓
+CELLULAR STATE
+        ↓
+DYNAMICAL TRAJECTORY
+        ↓
+TRANSITION GEOMETRY
+        ↓
+CEH HYPOTHESIS
+```
+
+Radiation-track research shows that biological effects depend on the spatial and temporal structure of energy deposition, not only on total dose, and that these effects can be studied with Monte Carlo track-structure and micro/nanodosimetry approaches. citeturn0search5turn0search9
+
+The cell nucleus also behaves as a dynamic physical material involving chromatin mechanics and phase-separated nuclear condensates. citeturn0search0turn0search3
+
+The purpose of this interface is to ask whether physical perturbations can be connected quantitatively to changes in latent biological-state dynamics, without assuming that such a connection exists.
+
+See [docs/nuclear-physics-interface.md](docs/nuclear-physics-interface.md).
+
 ## 🧠 Theoretical depth
 
 CEH is being developed against established frameworks in dynamical systems, stochastic modelling, attractor landscapes, bifurcation theory and single-cell systems biology. These frameworks define the theoretical territory that the hypothesis must confront; they are not claimed as inventions of this project.
