@@ -152,6 +152,31 @@ CEH is therefore a module inside a larger research architecture, not the claim t
 ---
 
 
+
+## 🌐 Synthetic Biological World
+
+The program now contains a controlled synthetic world in which the generating dynamics, perturbation point and transition boundary are known by construction.
+
+It exists for one reason: **test the research architecture before touching biological data**.
+
+```
+KNOWN DYNAMICS
+      ↓
+PERTURBATION
+      ↓
+NOISY OBSERVATIONS
+      ↓
+STATE RECONSTRUCTION
+      ↓
+CEH / DYNAMICAL ANALYSIS
+      ↓
+HELD-OUT FUTURE
+      ↓
+COMPARE WITH GROUND TRUTH
+```
+
+The world can independently introduce observation noise and missingness. It is explicitly labeled a methodological benchmark, not a biological simulation or biological evidence.
+
 ## 🧠 Research ontology
 
 The program now uses an explicit scientific vocabulary so that computational objects are not confused with biological claims:
