@@ -2,60 +2,50 @@
 
 The benchmark is the project's central falsification instrument.
 
-## Question
+## Primary comparison
 
-Does a candidate Cellular Event Horizon signal identify an upcoming transition using only information available at the cutoff, and does it add information beyond simpler alternatives?
+**snapshot state → temporal history → early-warning statistics → candidate CEH**
 
-Primary comparison:
+Every method receives only observations available at the prospective cutoff. The transition label is generated independently from the predictor.
 
-snapshot state → temporal history → established early-warning statistics → candidate CEH
+## Benchmark matrix
 
-CEH is treated as a hypothesis. The benchmark is allowed to reject it.
+| Scenario | Purpose |
+|---|---|
+| Controlled nonlinear transition | Known mathematical ground truth |
+| Heavy-tailed transition | Test sensitivity to non-Gaussian noise |
+| Stable control | No transition; expose false alarms |
+| Stable non-normal system | Transient amplification without eigenvalue instability |
 
-## Protocol
+The next benchmark layer should add missingness, observation-model changes, multimodal representations and real public biological trajectories with independently defined transition annotations.
 
-For each trajectory, a transition time is defined independently from the observations used by the predictor. At cutoff t, the predictor receives only Y_0...Y_t. A positive label means the known transition occurs within the prespecified horizon.
+## Primary endpoints
 
-No method may inspect future observations while producing the score.
-
-## Metrics
-
-Primary:
 - AUROC
 - AUPRC
 
-Secondary:
-- detection rate at a calibration-derived threshold
-- false-positive rate
-- lead time
-- robustness to observation noise and missingness
-- calibration
-- performance across independent seeds
+These are ranking metrics. They do not prove a biological mechanism.
 
-## Adversarial controls
+## Secondary endpoints
 
-The benchmark must include:
-1. a mathematical transition with known ground truth;
-2. stable non-normal dynamics that can transiently amplify without a bifurcation;
-3. noise regimes that can create misleading temporal structure;
-4. no-transition controls;
-5. later, real public biological trajectories with independently defined transition annotations.
+- false-positive rate at a threshold calibrated without test trajectories;
+- detection rate;
+- lead time;
+- robustness to noise and missingness;
+- calibration;
+- cross-seed reproducibility;
+- incremental information beyond snapshot and established temporal indicators.
 
-A CEH signal that performs well only on its own synthetic construction is not evidence of a biological phenomenon.
+## Adversarial principle
+
+A method that performs well only on the synthetic dynamics that inspired it has not demonstrated generality.
+
+Non-normal transient amplification, heavy-tailed noise, observation artifacts and no-transition worlds are therefore treated as mandatory challenges.
 
 ## Interpretation
 
-Success requires incremental value, not a high score in isolation. The key comparison is whether CEH remains informative after simpler temporal and early-warning baselines, and whether the result survives null mechanisms and representation changes.
+CEH is a candidate construct, not an established biological phenomenon. A benchmark can reject it.
 
-Failure is a valid scientific result. The repository should preserve failed benchmarks rather than tuning the method until it wins.
+The strongest result is not a high score in isolation. It is reproducible incremental information beyond simpler alternatives that survives matched null mechanisms and representation changes.
 
-## Reproducibility
-
-Every benchmark should record:
-- random seed;
-- simulator parameters;
-- cutoff and prediction horizon;
-- observation model;
-- missingness/noise settings;
-- method version;
-- metric definitions.
+A negative result is also scientifically valuable: the repository should preserve it and revise the hypothesis rather than tune around it.
