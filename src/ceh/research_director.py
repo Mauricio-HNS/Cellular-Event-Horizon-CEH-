@@ -1,7 +1,9 @@
 """Autonomous research-direction engine for the CEH program.
 
-The director ranks information-gain opportunities from measured evidence. It
-does not infer truth from scores and never treats missing evidence as failure.
+The director ranks information-gain opportunities from measured evidence and
+explicitly reserves literature intelligence and self-evaluation as mandatory
+inputs to each research cycle. It does not infer truth from scores, never
+treats missing evidence as failure, and never rewrites historical evidence.
 """
 from __future__ import annotations
 
@@ -32,6 +34,8 @@ class ResearchPlan:
     critical_weaknesses: tuple[str, ...]
     actions: tuple[ResearchAction, ...]
     falsification_status: str
+    literature_required: bool = True
+    self_evaluation_required: bool = True
 
 
 def build_plan(
@@ -124,6 +128,8 @@ def build_plan(
         tuple(weaknesses),
         tuple(actions),
         status,
+        literature_required=True,
+        self_evaluation_required=True,
     )
 
 
