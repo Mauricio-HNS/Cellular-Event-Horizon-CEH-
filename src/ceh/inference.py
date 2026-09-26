@@ -41,7 +41,7 @@ def paired_auc_bootstrap(
     if not 0 < confidence < 1:
         raise ValueError("confidence must be between 0 and 1")
 
-    observed = auroc(y, full) - auroc(y, base)
+    observed = auroc(full, y) - auroc(base, y)
     rng = np.random.default_rng(seed)
     estimates = []
     for _ in range(replicates):
