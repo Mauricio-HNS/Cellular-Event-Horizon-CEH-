@@ -22,6 +22,60 @@
 
 ---
 
+## 🧠 Theoretical depth
+
+CEH is being developed against established frameworks in dynamical systems, stochastic modelling, attractor landscapes, bifurcation theory and single-cell systems biology. These frameworks define the theoretical territory that the hypothesis must confront; they are not claimed as inventions of this project.
+
+> Can a transition-relevant region of latent biological state space be inferred prospectively from observations available before the transition, and does that region contain information beyond the instantaneous state, generic temporal dynamics and representation-specific artifacts?
+
+### Mathematical stack
+
+```text
+OBSERVATION
+    y_t = h(x_t) + η_t
+             │
+             ▼
+LATENT STATE
+    x_t ∈ M
+             │
+             ▼
+DYNAMICAL SYSTEM
+    dx = f(x,t)dt + G(x,t)dW_t
+             │
+      ┌──────┴──────┐
+      ▼             ▼
+  ATTRACTORS    TRANSIENT GEOMETRY
+      │             │
+      └──────┬──────┘
+             ▼
+      TRANSITION RISK
+             │
+             ▼
+       CEH HYPOTHESIS
+             │
+             ▼
+       PROSPECTIVE TEST
+             │
+             ▼
+       INTERVENTION
+             │
+             ▼
+       MODEL REVISION
+```
+
+### Four layers that must not be conflated
+
+1. **Measurement** — what the experiment actually observes.
+2. **State inference** — the latent representation reconstructed from observations.
+3. **Dynamics** — how the inferred state evolves.
+4. **Biological interpretation** — claims that require independent evidence.
+
+### What CEH is not
+
+CEH is not an established biological structure, clinical biomarker, cancer detector, or attractor by definition. It is a falsifiable hypothesis.
+
+Existing systems-biology work already provides strong foundations around cellular dynamical systems, attractors, trajectories and bifurcation-based transition analysis. The repository therefore focuses on whether the proposed construct adds measurable information under controlled and empirical tests.
+
 ## 🧬 From CEH to Universal Biological Dynamics
 
 CEH is no longer framed as an isolated algorithmic idea. It is the first research construct inside a broader program: **Universal Biological Dynamics**.
