@@ -88,7 +88,7 @@ def evaluate_trajectory_level(
         raise ValueError("trajectory-level AUROC requires both classes")
 
     return TrajectoryLevelResult(
-        auroc=auroc(labels, values),
+        auroc=auroc(values, labels),
         auprc=auprc(labels, values),
         scores=tuple(rows),
         n_trajectories=len(rows),
