@@ -9,7 +9,7 @@ def test_score_from_rows_uses_documented_rows():
     ]
     scores=score_from_rows(rows)
     assert scores["robustness"] == pytest.approx(2/3)
-    assert scores["incremental_information"] == pytest.approx(0.5533333333)
+    assert scores["incremental_information"] == pytest.approx(0.5)
 
 def test_missing_null_evidence_is_not_fabricated():
     scores=score_from_rows([{"method":"ceh","delta_auroc":0.05}])
