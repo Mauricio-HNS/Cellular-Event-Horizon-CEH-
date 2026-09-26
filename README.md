@@ -542,6 +542,34 @@ The matrix is explicitly a robustness test, not biological evidence. A signal th
 
 [Read the factorial benchmark protocol →](docs/benchmark-matrix.md)
 
+## 🔬 Incremental information challenge
+
+A candidate transition signal should not be considered informative merely because it correlates with an approaching transition.
+
+The benchmark therefore asks a stricter question:
+
+> Does the candidate add prospective information after a baseline signal is already known?
+
+Experiment 018 compares candidate signals against instantaneous snapshot, temporal-history, and early-warning baselines. The candidate is residualized against each baseline using training trajectories only, then evaluated on held-out trajectories.
+
+Reported quantities are changes in AUROC and AUPRC relative to the baseline. A positive result would still be synthetic evidence only; a null result is also scientifically useful because it can show that the candidate is not adding information beyond a simpler explanation.
+
+```
+CANDIDATE
+   │
+   ├── snapshot explained?
+   ├── temporal history explained?
+   └── early-warning explained?
+             │
+             ▼
+      INCREMENTAL SIGNAL
+             │
+             ▼
+       HELD-OUT TEST
+```
+
+[Incremental benchmark →](src/ceh/incremental.py) · [Experiment 018 →](experiments/018_incremental_information.py)
+
 ## 🧪 Held-out calibration
 
 The benchmark now includes a second evaluation layer that separates **calibration trajectories from held-out test trajectories**.
