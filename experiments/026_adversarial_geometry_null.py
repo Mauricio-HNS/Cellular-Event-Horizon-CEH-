@@ -8,8 +8,6 @@ convergence geometry?
 This is a mechanism-specific computational falsification test. It does not
 establish biological validity.
 """
-from __future__ import annotations
-
 from dataclasses import asdict, dataclass
 import json
 from pathlib import Path
