@@ -495,6 +495,34 @@ The repository currently makes no diagnostic, prognostic, therapeutic or clinica
 
 ---
 
+## 🧪 CEH Benchmark
+
+The benchmark is now the central falsification layer of the project.
+
+It forces the candidate CEH construct to compete under the same prospective protocol against:
+
+```
+SNAPSHOT
+   ↓
+TEMPORAL HISTORY
+   ↓
+EARLY-WARNING STATISTICS
+   ↓
+CANDIDATE CEH
+```
+
+Every score is computed from observations available at the cutoff only. The transition label is defined independently from the predictor, so future observations cannot leak into the score.
+
+The first benchmark compares:
+- a controlled nonlinear transition;
+- stable non-normal dynamics as an adversarial null;
+- snapshot, temporal, early-warning and candidate CEH signals;
+- AUROC and AUPRC under identical cutoffs.
+
+The benchmark is deliberately allowed to fail. A CEH signal is scientifically interesting only if it provides reproducible incremental information beyond simpler alternatives and survives adversarial null mechanisms.
+
+[Read the CEH benchmark protocol →](docs/ceh-benchmark.md)
+
 ## 🚀 Roadmap
 
 **01** Program definition  
