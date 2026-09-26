@@ -54,6 +54,22 @@ The purpose of this interface is to ask whether physical perturbations can be co
 
 See [docs/nuclear-physics-interface.md](docs/nuclear-physics-interface.md).
 
+## 🧬 Nonlinear Dynamics Laboratory
+
+CEH is now tested inside a controlled nonlinear dynamical system with known ground truth.
+
+The first laboratory uses the canonical saddle-node normal form:
+
+$
+\\dot{x}=\\mu-x^2
+$
+
+This provides explicit fixed points, local stability, a bifurcation boundary and a stochastic extension. It is a mathematical laboratory, not biological evidence.
+
+The purpose is deliberately adversarial: CEH candidates must add information beyond established critical-transition indicators such as critical slowing down, variance and autocorrelation. citeturn0search0turn0search12
+
+See [docs/nonlinear-dynamics-lab.md](docs/nonlinear-dynamics-lab.md).
+
 ## 🧠 Theoretical depth
 
 CEH is being developed against established frameworks in dynamical systems, stochastic modelling, attractor landscapes, bifurcation theory and single-cell systems biology. These frameworks define the theoretical territory that the hypothesis must confront; they are not claimed as inventions of this project.
