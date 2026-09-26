@@ -57,6 +57,35 @@ def paired_auc_bootstrap(
                        float(np.quantile(values, 1 - alpha / 2)), len(values))
 
 
+def paired_auc_permutation(
+    labels, baseline_scores, full_scores, *, replicates=2000, seed=7,
+) -> PermutationResult:
+    """Permutation test by swapping paired model scores within trajectories."""
+    y = np.asarray(labels, dtype=int)
+    base = np.asarray(baseline_scores, dtype=float)
+    full = np.asarray(full_scores, dtype=float)
+    if not (y.ndim == base.ndim == full.ndim == 1):
+        raise ValueError("all inputs must be one-dimensional")
+    if not (len(y) == len(base) == len(full)) or len(y) < 4:
+        raise ValueError("paired arrays must have equal length >= 4")
+    if len(np.unique(y)) < 2:
+        raise ValueError("labels must contain both classes")
+    if not (np.all(np.isfinite(base)) and np.all(np.isfinite(full))):
+        raise ValueError("scores must be finite")
+
+    observed = float(auroc(y, full) - auroc(y, base))
+    rng = np.random.default_rng(seed)
+    extreme = 0
+    for _ in range(replicates):
+        swap = rng.integers(0, 2, size=len(y)).astype(bool)
+        perm_base = np.where(swap, full, base)
+        perm_full = np.where(swap, base, full)
+        delta = auroc(y, perm_full) - auroc(y, perm_base)
+        if delta >= observed:
+            extreme += 1
+    return PermutationResult(observed, float((extreme + 1) / (replicates + 1)), replicates)
+
+
 def bootstrap_mean_difference(
     deltas: np.ndarray, *, replicates=2000, confidence=0.95, seed=7,
 ) -> BootstrapCI:
