@@ -570,6 +570,18 @@ CANDIDATE
 
 [Incremental benchmark →](src/ceh/incremental.py) · [Experiment 018 →](experiments/018_incremental_information.py)
 
+## 🧬 Representation-matched adversarial benchmark
+
+Experiment 027 raises the control difficulty: no-transition trajectories are first generated in a broad geometry-only pool and then selected to match the transition population on a pre-specified signature containing directionality, acceleration and convergence.
+
+The inference remains prospective and trajectory-level. CEH is added to the jointly fitted Snapshot + Temporal + Early Warning baseline, with train/test separation by trajectory and paired bootstrap/permutation inference.
+
+This addresses a stronger question than Experiment 026: **does CEH contain incremental information when its own geometric ingredients are deliberately reproduced in the control population?**
+
+A positive computational result still requires external biological validation. A null result is informative because it identifies a plausible explanation for CEH performance that does not require a transition-specific mechanism.
+
+[Experiment 027 →](experiments/027_representation_matched_null.py) · [Matching implementation →](src/ceh/representation_matching.py)
+
 ## 🧨 Adversarial geometry falsification
 
 Experiment 026 attacks a more specific failure mode: the CEH score may simply reward the geometry it was designed to measure.
