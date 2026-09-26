@@ -89,7 +89,7 @@ def evaluate_trajectory_level(
 
     return TrajectoryLevelResult(
         auroc=auroc(values, labels),
-        auprc=auprc(labels, values),
+        auprc=auprc(values, labels),
         scores=tuple(rows),
         n_trajectories=len(rows),
         positives=int(labels.sum()),
