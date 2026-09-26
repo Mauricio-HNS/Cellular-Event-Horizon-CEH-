@@ -56,6 +56,36 @@ See [docs/nuclear-physics-interface.md](docs/nuclear-physics-interface.md).
 
 ## 🧬 Nonlinear Dynamics Laboratory
 
+## 🌌 Multiscale physical-to-cellular bridge
+
+The synthetic architecture now separates five layers:
+
+```
+PHYSICAL PERTURBATION
+        ↓
+DAMAGE
+        ↓
+REPAIR
+        ↓
+NUCLEAR STATE
+        ↓
+CELLULAR STATE
+```
+
+This follows a scientifically motivated multiscale direction: radiation track structure can produce spatially clustered molecular damage, while chromatin and nuclear organization influence downstream response. citeturn0search1turn0search8turn0search13
+
+The implementation is deliberately phenomenological. It is **not** a radiation transport simulator and does not claim to reproduce real radiobiological parameters.
+
+The key experimental question is now:
+
+> Does information from upstream physical/nuclear layers improve prospective transition prediction beyond the instantaneous cellular state and established temporal indicators?
+
+The repository compares these layers against variance, lag-1 autocorrelation and relaxation-rate baselines before attributing any additional signal to CEH.
+
+See [docs/multiscale-architecture.md](docs/multiscale-architecture.md).
+
+
+
 CEH is now tested inside a controlled nonlinear dynamical system with known ground truth.
 
 The first laboratory uses the canonical saddle-node normal form:
