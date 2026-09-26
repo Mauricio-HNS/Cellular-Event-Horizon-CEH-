@@ -48,7 +48,7 @@ def paired_auc_bootstrap(
         idx = rng.integers(0, len(y), size=len(y))
         if len(np.unique(y[idx])) < 2:
             continue
-        estimates.append(auroc(y[idx], full[idx]) - auroc(y[idx], base[idx]))
+        estimates.append(auroc(full[idx], y[idx]) - auroc(base[idx], y[idx]))
     if len(estimates) < max(100, replicates // 10):
         raise ValueError("too many bootstrap samples lost a class")
     values = np.asarray(estimates)
