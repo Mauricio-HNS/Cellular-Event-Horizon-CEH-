@@ -151,6 +151,29 @@ CEH is therefore a module inside a larger research architecture, not the claim t
 
 ---
 
+
+## 🧠 Research ontology
+
+The program now uses an explicit scientific vocabulary so that computational objects are not confused with biological claims:
+
+```
+OBSERVATION ≠ STATE
+STATE ≠ TRAJECTORY
+TRAJECTORY ≠ CAUSAL MECHANISM
+PREDICTION ≠ CAUSALITY
+CORRELATION ≠ BIOLOGICAL PROOF
+```
+
+The complete experimental object connects **state, context, trajectory, perturbation, response, time and uncertainty**.
+
+[Read the research ontology →](docs/research-ontology.md)
+
+## 🧪 Experimental ladder
+
+Synthetic identifiability → temporal integrity → baseline challenge → multimodal convergence → perturbation challenge → cross-system transfer → independent replication.
+
+[Read the experimental design →](docs/experimental-design.md) · [Read the benchmark matrix →](docs/benchmark-matrix.md)
+
 ## 🧬 Biological scope
 
 Potential research domains include:
