@@ -6,6 +6,7 @@ attached to a passing statistical result.
 from __future__ import annotations
 
 from dataclasses import dataclass, asdict
+import hashlib
 import json
 from pathlib import Path
 import numpy as np
@@ -153,7 +154,51 @@ def write_result(path: str | Path, result: PrimaryEndpointResult) -> Path:
     return p
 
 
+def write_audit_manifest(
+    path: str | Path,
+    *,
+    result: PrimaryEndpointResult,
+    dataset: dict,
+    protocol_path: str = "docs/primary-endpoint-manifest.json",
+) -> Path:
+    payload = {
+        "experiment": "025_primary_endpoint",
+        "status": "computed_result",
+        "protocol": protocol_path,
+        "protocol_sha256": hashlib.sha256(
+            Path(protocol_path).read_bytes()
+        ).hexdigest(),
+        "dataset": dataset,
+        "result": asdict(result),
+        "interpretation_guard": (
+            "Computational statistical evidence does not establish biological "
+            "validity, clinical utility, or causal mechanism."
+        ),
+    }
+    p = Path(path)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    return p
+
+
 if __name__ == "__main__":
     trajectories, transition_times = build_dataset()
     result = run_primary_endpoint(trajectories, transition_times)
+    dataset = {
+        "n_transition": 24,
+        "n_no_transition": 24,
+        "n_steps": 60,
+        "n_features": 4,
+        "transition_time": 35,
+        "seed": 100,
+        "analysis_seed": 7,
+        "bootstrap_replicates": 2000,
+        "permutation_replicates": 2000,
+    }
+    write_result("results/025-primary-endpoint.json", result)
+    write_audit_manifest(
+        "results/025-primary-endpoint-audit.json",
+        result=result,
+        dataset=dataset,
+    )
     print(result)
