@@ -106,7 +106,7 @@ def evaluate_joint_trajectory_level(
     full_score = _predict(beta_full, test_full)
     y = labels[test_idx]
 
-    base_auc = auroc(y, base_score)
+    base_auc = auroc(base_score, y)
     full_auc = auroc(y, full_score)
     base_ap = auprc(y, base_score)
     full_ap = auprc(y, full_score)
