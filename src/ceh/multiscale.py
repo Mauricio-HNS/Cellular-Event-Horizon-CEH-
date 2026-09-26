@@ -39,7 +39,7 @@ def step_multiscale(
     physical = float(perturbation)
     damage = max(0.0, state.damage + dt * (damage_rate * physical - repair_rate * state.repair))
     repair = max(0.0, state.repair + dt * (damage - state.repair))
-    nuclear = state.nuclear + dt * nuclear_rate * (damage - nuclear)
+    nuclear = state.nuclear + dt * nuclear_rate * (damage - state.nuclear)
     cellular = state.cellular + dt * cellular_rate * (nuclear - cellular)
 
     return MultiscaleState(
