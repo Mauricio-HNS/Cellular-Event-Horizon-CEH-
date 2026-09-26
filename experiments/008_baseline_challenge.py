@@ -6,9 +6,10 @@ from ceh.statistics import bootstrap_mean
 def main() -> None:
     world = generate_population(PopulationWorldConfig(entities=20, dimensions=5, steps=70))
     cutoff = world.transition_time - 1
-    snapshot = [snapshot_signal(world.states[: , i, :].mean(axis=0), cutoff) for i in range(20)]
-    temporal = [temporal_signal(world.states[:, i, :].mean(axis=0), cutoff) for i in range(20)]
-    ceh = [ceh_signal(world.states[:, i, :].mean(axis=0), cutoff) for i in range(20)]
+    series = [world.states[:, i, :] for i in range(world.states.shape[1])]
+    snapshot = [snapshot_signal(x, cutoff) for x in series]
+    temporal = [temporal_signal(x, cutoff) for x in series]
+    ceh = [ceh_signal(x, cutoff) for x in series]
     for name, values in (("snapshot", snapshot), ("temporal", temporal), ("ceh", ceh)):
         lo, hi = bootstrap_mean(values)
         print(name, "mean=", sum(values) / len(values), "95% bootstrap CI=", (lo, hi))
