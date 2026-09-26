@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+<title id="title">Cellular Event Horizon trajectory concept</title>
+<desc id="desc">A trajectory moves through state space, crosses a candidate horizon region, and approaches an emergent state.</desc>
+<rect width="1200" height="520" fill="#07141b"/>
+<g fill="none" stroke="#18343e" stroke-width="1"><path d="M80 440H1120"/><path d="M120 60V440"/></g>
+<text x="80" y="48" fill="#e7f4f6" font-family="sans-serif" font-size="28" font-weight="700">Trajectory → Dynamics → Candidate Horizon</text>
+<ellipse cx="700" cy="260" rx="190" ry="125" fill="#0d2831" stroke="#54d2d9" stroke-width="2" stroke-dasharray="8 8"/>
+<text x="620" y="245" fill="#9ce9ed" font-family="sans-serif" font-size="20">candidate</text>
+<text x="620" y="272" fill="#9ce9ed" font-family="sans-serif" font-size="20">horizon region</text>
+<path d="M150 390 C300 360 380 300 500 320 S620 340 690 285 S760 190 850 175 S980 120 1080 95" fill="none" stroke="#f0d28b" stroke-width="6"/>
+<circle cx="690" cy="285" r="10" fill="#54d2d9"/>
+<circle cx="1080" cy="95" r="12" fill="#f0d28b"/>
+<text x="140" y="420" fill="#9ab1b7" font-family="sans-serif" font-size="17">observed state trajectory</text>
+<text x="930" y="78" fill="#f0d28b" font-family="sans-serif" font-size="18">emergent state</text>
+<text x="75" y="490" fill="#6f8b92" font-family="sans-serif" font-size="15">Conceptual illustration — not a biological or clinical representation.</text>
+</svg>
