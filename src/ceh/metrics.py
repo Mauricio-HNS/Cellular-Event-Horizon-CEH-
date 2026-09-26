@@ -20,7 +20,7 @@ def auprc(scores, labels):
     if positives==0: return float("nan")
     tp=np.cumsum(yy); fp=np.cumsum(1-yy)
     precision=tp/np.maximum(tp+fp,1); recall=tp/positives
-    return float(np.sum((recall[1:]-recall[:-1])*precision[1:]) if len(recall)>1 else precision[0])
+    return float(np.sum((recall-np.concatenate(([0.0],recall[:-1])))*precision))
 
 def detection_rate(scores, labels, threshold):
     s,y=_validate(scores,labels); p=s[y==1]
