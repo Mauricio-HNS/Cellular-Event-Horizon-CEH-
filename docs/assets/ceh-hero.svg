@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 620" role="img" aria-labelledby="t d">
+<title id="t">Cellular Event Horizon — dynamic cellular state transitions</title>
+<desc id="d">Scientific visualization combining a stylized cell, DNA helix, trajectory field and a candidate cellular event horizon.</desc>
+<defs>
+ <radialGradient id="bg"><stop offset="0" stop-color="#123842"/><stop offset="1" stop-color="#050d12"/></radialGradient>
+ <linearGradient id="mem" x1="0" x2="1"><stop stop-color="#67e8e2"/><stop offset="1" stop-color="#d8c27c"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1600" height="620" fill="url(#bg)"/>
+<g opacity=".16" stroke="#8be8e6" fill="none">
+ <path d="M0 470 C260 320 420 550 680 390 S1080 170 1600 310" stroke-width="2"/>
+ <path d="M0 510 C270 360 420 590 710 420 S1110 210 1600 340" stroke-width="1"/>
+ <path d="M0 430 C250 280 440 500 690 350 S1080 120 1600 270" stroke-width="1"/>
+</g>
+<g transform="translate(1120 310)" filter="url(#glow)">
+ <circle r="190" fill="#0a222b" stroke="url(#mem)" stroke-width="7"/>
+ <circle r="154" fill="none" stroke="#28535d" stroke-width="2"/>
+ <ellipse rx="78" ry="58" fill="#102f39" stroke="#67e8e2" stroke-width="3"/>
+ <ellipse rx="48" ry="36" fill="#0a2028" stroke="#d8c27c" stroke-width="2"/>
+ <circle cx="-92" cy="-72" r="22" fill="#123842" stroke="#67e8e2" stroke-width="2"/>
+ <circle cx="105" cy="-42" r="17" fill="#123842" stroke="#d8c27c" stroke-width="2"/>
+ <circle cx="78" cy="92" r="25" fill="#123842" stroke="#67e8e2" stroke-width="2"/>
+ <g transform="translate(-28 -105)" fill="none" stroke="#d8c27c" stroke-width="5">
+   <path d="M0 0 C80 25 80 105 0 130 C-80 155 -80 235 0 260"/>
+   <path d="M70 0 C-10 25 -10 105 70 130 C150 155 150 235 70 260"/>
+   <path d="M12 27H58M2 67H68M2 108H68M12 148H58M20 188H50M20 228H50"/>
+ </g>
+</g>
+<g transform="translate(80 92)">
+ <text fill="#dff8f7" font-family="Arial,Helvetica,sans-serif" font-size="68" font-weight="700">CELLULAR</text>
+ <text y="78" fill="#67e8e2" font-family="Arial,Helvetica,sans-serif" font-size="68" font-weight="700">EVENT HORIZON</text>
+ <text y="142" fill="#b5c8cc" font-family="Arial,Helvetica,sans-serif" font-size="24" letter-spacing="4">DYNAMIC CELLULAR STATE TRANSITIONS</text>
+ <g transform="translate(0 205)">
+   <circle cx="10" cy="10" r="7" fill="#67e8e2"/><text x="30" y="18" fill="#dff8f7" font-family="Arial,Helvetica,sans-serif" font-size="21">STATE</text>
+   <text x="112" y="18" fill="#526f77" font-size="25">→</text>
+   <circle cx="165" cy="10" r="7" fill="#67e8e2"/><text x="185" y="18" fill="#dff8f7" font-family="Arial,Helvetica,sans-serif" font-size="21">TRAJECTORY</text>
+   <text x="350" y="18" fill="#526f77" font-size="25">→</text>
+   <circle cx="403" cy="10" r="7" fill="#d8c27c"/><text x="423" y="18" fill="#dff8f7" font-family="Arial,Helvetica,sans-serif" font-size="21">DYNAMICS</text>
+   <text x="575" y="18" fill="#526f77" font-size="25">→</text>
+   <circle cx="628" cy="10" r="7" fill="#d8c27c"/><text x="648" y="18" fill="#dff8f7" font-family="Arial,Helvetica,sans-serif" font-size="21">HORIZON</text>
+ </g>
+ <text y="310" fill="#8ea8ae" font-family="Arial,Helvetica,sans-serif" font-size="19">A falsifiable computational hypothesis — not a clinical claim.</text>
+</g>
+</svg>
