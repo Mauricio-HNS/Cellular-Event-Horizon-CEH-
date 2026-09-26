@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 700">
+<defs><radialGradient id="b"><stop stop-color="#102e37"/><stop offset="1" stop-color="#050c11"/></radialGradient><filter id="g"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect width="1400" height="700" fill="url(#b)"/>
+<g stroke="#22434b" opacity=".45" fill="none"><path d="M80 590H1320M120 640V70"/><path d="M120 520 C300 470 350 250 570 300 S820 500 1080 220 S1250 150 1320 120"/><path d="M120 430 C330 380 420 180 620 240 S900 380 1110 170"/></g>
+<ellipse cx="770" cy="315" rx="190" ry="150" fill="#163942" opacity=".7" stroke="#67e8e2" stroke-width="3" stroke-dasharray="10 8"/>
+<text x="675" y="285" fill="#9ce9ed" font-family="Arial,sans-serif" font-size="24" font-weight="700">CANDIDATE</text><text x="675" y="318" fill="#9ce9ed" font-family="Arial,sans-serif" font-size="24" font-weight="700">EVENT HORIZON</text>
+<path d="M120 545 C260 510 330 410 430 350 S590 280 690 320 S760 340 820 275 S930 190 1040 175 S1160 125 1300 105" fill="none" stroke="#e2c77e" stroke-width="7" filter="url(#g)"/>
+<path d="M120 545 C260 510 330 410 430 350" fill="none" stroke="#67e8e2" stroke-width="7"/>
+<circle cx="120" cy="545" r="13" fill="#67e8e2"/><circle cx="820" cy="275" r="12" fill="#67e8e2"/><circle cx="1300" cy="105" r="14" fill="#e2c77e"/>
+<text x="75" y="585" fill="#dcebed" font-family="Arial,sans-serif" font-size="18">reference regime</text><text x="835" y="268" fill="#9ce9ed" font-family="Arial,sans-serif" font-size="18">transition geometry</text><text x="1080" y="90" fill="#e2c77e" font-family="Arial,sans-serif" font-size="18">emergent state</text>
+<text x="80" y="70" fill="#e8f5f5" font-family="Arial,sans-serif" font-size="34" font-weight="700">CELLULAR STATE-SPACE</text>
+<text x="80" y="105" fill="#8da9af" font-family="Arial,sans-serif" font-size="17" letter-spacing="3">TRAJECTORY GEOMETRY · CONVERGENCE · EMERGENCE</text>
+<text x="80" y="675" fill="#617d84" font-family="Arial,sans-serif" font-size="15">Conceptual scientific visualization — no biological dataset or clinical result is represented.</text>
+</svg>
