@@ -77,6 +77,12 @@ It is the **geometry and temporal structure of the path**.
 
 ---
 
+## 🧬 Biological abstraction
+
+![Biological abstraction to computational state](docs/assets/biological-abstraction.svg)
+
+CEH does not assume that a biological cell is directly equivalent to a vector. The computational state is an explicit abstraction: observations are transformed into a representation that can be analyzed over time. The scientific burden is therefore twofold — validate the trajectory mathematics **and** test whether the chosen representation preserves information relevant to the biological transition of interest.
+
 ## 🗺️ Cellular state-space
 
 ![Cellular state-space map](docs/assets/state-space-map.svg)
