@@ -6,4 +6,4 @@ def test_null_matrix_contains_both_scenarios():
     rows=generate_null_matrix(x,[20]*2,x,[9999]*2,horizon=10,
         noises=("gaussian",),missingness=(0,),dimensions=(1,),modalities=("state",))
     scenarios={r.scenario for r in rows}
-    assert scenarios=={"transition","no_transition"}
+    assert scenarios=={"pooled_transition_vs_no_transition"}
