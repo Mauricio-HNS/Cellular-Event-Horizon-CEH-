@@ -97,13 +97,26 @@ def joint_incremental_evaluate(
     if not 0.5 <= train_fraction < 1:
         raise ValueError("train_fraction must be in [0.5, 1)")
 
-    split = max(3, int(len(trajectories) * train_fraction))
-    split = min(split, len(trajectories) - 3)
+    # Stratify the trajectory split so the held-out trajectories contain both classes.
+    labels = np.asarray([int(t < len(x)) for x, t in zip(trajectories, transition_times)], dtype=int)
+    rng = np.random.default_rng(7)
+    train_parts = []
+    test_parts = []
+    for cls in (0, 1):
+        idx = rng.permutation(np.flatnonzero(labels == cls))
+        n_train = max(1, int(len(idx) * train_fraction))
+        n_train = min(n_train, len(idx) - 1)
+        train_parts.append(idx[:n_train])
+        test_parts.append(idx[n_train:])
+    train_idx = np.concatenate(train_parts)
+    test_idx = np.concatenate(test_parts)
+    train_idx = rng.permutation(train_idx)
+    test_idx = rng.permutation(test_idx)
 
-    train_traj = trajectories[:split]
-    train_t = transition_times[:split]
-    test_traj = trajectories[split:]
-    test_t = transition_times[split:]
+    train_traj = [trajectories[i] for i in train_idx]
+    train_t = [transition_times[i] for i in train_idx]
+    test_traj = [trajectories[i] for i in test_idx]
+    test_t = [transition_times[i] for i in test_idx]
 
     base = tuple(baseline_methods)
     train_b, train_y = _collect(train_traj, train_t, base, horizon, window)
