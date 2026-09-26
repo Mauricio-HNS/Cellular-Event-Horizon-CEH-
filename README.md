@@ -570,6 +570,22 @@ CANDIDATE
 
 [Incremental benchmark →](src/ceh/incremental.py) · [Experiment 018 →](experiments/018_incremental_information.py)
 
+## 🧨 Adversarial geometry falsification
+
+Experiment 026 attacks a more specific failure mode: the CEH score may simply reward the geometry it was designed to measure.
+
+The control populations therefore reproduce:
+
+- directionality + acceleration without a labeled transition;
+- convergence toward a shared attractor without a labeled transition;
+- a geometry-matched mixture containing both behaviors.
+
+The formal endpoint uses one trajectory as one unit of inference and asks whether adding CEH to the joint snapshot + temporal + early-warning baseline changes held-out trajectory-level AUROC. The paired bootstrap interval and paired score-swap permutation are computed over trajectories, with Benjamini–Hochberg correction across the three adversarial comparisons.
+
+A CEH effect under these controls would weaken the interpretation that the signal is transition-mechanism-specific. Conversely, failure to survive them does not prove biological validity; it only removes one class of computational explanation.
+
+[Experiment 026 →](experiments/026_adversarial_geometry_null.py) · [Adversarial null mechanisms →](src/ceh/adversarial_nulls.py)
+
 ## 🧪 Held-out calibration
 
 The benchmark now includes a second evaluation layer that separates **calibration trajectories from held-out test trajectories**.
