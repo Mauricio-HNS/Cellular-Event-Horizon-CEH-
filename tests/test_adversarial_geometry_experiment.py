@@ -1,8 +1,17 @@
-from experiments._026_adversarial_geometry_null import run
+import importlib.util
+from pathlib import Path
+
+
+def _load_experiment():
+    path = Path(__file__).parents[1] / "experiments" / "026_adversarial_geometry_null.py"
+    spec = importlib.util.spec_from_file_location("ceh_experiment_026", path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 
 def test_formal_adversarial_run_has_all_null_scenarios():
-    rows = run(seed=7, replicates=50)
+    rows = _load_experiment().run(seed=7, replicates=50)
     assert {row["name"] for row in rows} == {
         "direction_only",
         "convergence_only",
