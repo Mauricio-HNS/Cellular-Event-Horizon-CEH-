@@ -77,6 +77,12 @@ It is the **geometry and temporal structure of the path**.
 
 ---
 
+## 🗺️ Cellular state-space
+
+![Cellular state-space map](docs/assets/state-space-map.svg)
+
+The map above is intentionally conceptual: the horizon is represented as a **region of trajectory geometry**, not as a physical boundary inside a cell. The scientific question is whether this region can be operationalized and distinguished from structures produced by noise, sampling, or ordinary trajectory compression.
+
 ## 🧫 A cellular system, treated as a dynamical system
 
 Conceptually, a cell is represented as:
