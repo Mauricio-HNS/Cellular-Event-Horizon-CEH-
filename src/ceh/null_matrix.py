@@ -1,4 +1,4 @@
-"""Factorial benchmark with transition and matched null mechanisms."""
+"""Factorial benchmark with pooled transition and matched no-transition nulls."""
 from __future__ import annotations
 from dataclasses import asdict, dataclass
 import csv, json
@@ -62,10 +62,11 @@ def _observe(base, noise, miss, dim, modality, seed):
 
 def _scores(x,t0,horizon,method):
     s=[]; y=[]
-    for cutoff in range(7,min(len(x)-1,t0+horizon)+1):
+    stop=min(len(x)-1,t0+horizon)
+    for cutoff in range(7,stop+1):
         v=score_at_cutoff(x,cutoff,method,5)
         if np.isfinite(v):
-            s.append(float(v)); y.append(int(0<t0-cutoff<=horizon))
+            s.append(float(v)); y.append(int(t0 < len(x) and 0 < t0-cutoff <= horizon))
     return np.asarray(s),np.asarray(y,dtype=int)
 
 def generate_null_matrix(transition_trajectories, transition_times, null_trajectories, null_transition_times,
@@ -76,20 +77,25 @@ def generate_null_matrix(transition_trajectories, transition_times, null_traject
     nulls=list(null_trajectories); nt=list(null_transition_times)
     if len(trans)!=len(tt) or len(nulls)!=len(nt): raise ValueError("trajectory/transition lengths differ")
     rows=[]
-    scenarios=(("transition",trans,tt),("no_transition",nulls,nt))
-    for scenario, trajectories, times in scenarios:
-        for seed,(base,t0) in enumerate(zip(trajectories,times)):
-            for noise in noises:
-                for miss in missingness:
-                    for dim in dimensions:
-                        for modality in modalities:
-                            x=_observe(base,noise,miss,dim,modality,seed)
-                            for method in methods:
-                                s,y=_scores(x,t0,horizon,method)
-                                if len(s)>1 and len(np.unique(y))==2:
-                                    rows.append(NullMatrixRow(scenario,noise,float(miss),int(dim),modality,
-                                        "matched_null" if scenario=="no_transition" else "controlled_transition",
-                                        method,float(auroc(s,y)),float(auprc(s,y)),len(y),int(y.sum())))
+    # Pool transition and no-transition trajectories within each condition so
+    # the null population contributes genuine negative examples.
+    for noise in noises:
+        for miss in missingness:
+            for dim in dimensions:
+                for modality in modalities:
+                    for method in methods:
+                        scores=[]; labels=[]
+                        for seed,(base,t0) in enumerate(zip(trans,tt)):
+                            s,y=_scores(_observe(base,noise,miss,dim,modality,seed),t0,horizon,method)
+                            scores.extend(s); labels.extend(y)
+                        for offset,(base,t0) in enumerate(zip(nulls,nt)):
+                            s,_=_scores(_observe(base,noise,miss,dim,modality,1000+offset),t0,horizon,method)
+                            scores.extend(s); labels.extend(np.zeros(len(s),dtype=int))
+                        if len(scores)>1 and len(np.unique(labels))==2:
+                            rows.append(NullMatrixRow(
+                                "pooled_transition_vs_no_transition",noise,float(miss),int(dim),modality,
+                                "matched_no_transition",method,float(auroc(scores,labels)),
+                                float(auprc(scores,labels)),len(scores),int(np.sum(labels))))
     return rows
 
 def write_null_results(rows: Iterable[NullMatrixRow], output_dir):
