@@ -31,18 +31,15 @@ def score_at_cutoff(states, cutoff, method, window=5):
     if method=="ceh": return ceh_signal(states,cutoff,window=max(3,window))
     raise ValueError(f"unknown method: {method}")
 
-def evaluate_cutoffs(
-    trajectories, transition_times, horizon,
-    methods=("snapshot","temporal","early_warning","ceh"), window=5,
-):
+def evaluate_cutoffs(trajectories, transition_times, horizon, methods=("snapshot","temporal","early_warning","ceh"), window=5):
     """Evaluate identical prospective cutoffs against independently known transitions."""
+    if len(trajectories)!=len(transition_times): raise ValueError("trajectory/transition lengths differ")
     if horizon < 1: raise ValueError("horizon must be positive")
     rows=[]
     for method in methods:
         scores=[]; labels=[]
         for states,t0 in zip(trajectories,transition_times):
-            start=max(window+2,1)
-            stop=min(len(states)-1,t0+horizon)
+            start=max(window+2,1); stop=min(len(states)-1,t0+horizon)
             for cutoff in range(start,stop+1):
                 try: score=score_at_cutoff(states,cutoff,method,window)
                 except ValueError: continue
