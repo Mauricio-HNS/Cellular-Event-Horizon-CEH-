@@ -542,6 +542,40 @@ The matrix is explicitly a robustness test, not biological evidence. A signal th
 
 [Read the factorial benchmark protocol →](docs/benchmark-matrix.md)
 
+## 🧪 Held-out calibration
+
+The benchmark now includes a second evaluation layer that separates **calibration trajectories from held-out test trajectories**.
+
+The threshold is learned only from training negatives. Test performance is then evaluated on trajectories that were not used to set that threshold.
+
+Reported quantities include:
+
+- test AUROC;
+- test AUPRC;
+- held-out false-positive rate at the training-calibrated threshold;
+- number of positive and negative test cutoffs;
+- bootstrap 95% interval for AUROC.
+
+This is important because pooling many cutoffs from the same trajectory can otherwise create an artificially large effective sample size.
+
+The resulting evidence ladder is now:
+
+```
+PROSPECTIVE CUTOFF
+        ↓
+FACTORIAL ROBUSTNESS
+        ↓
+TRAIN / TEST SEPARATION
+        ↓
+CALIBRATED FALSE-POSITIVE RATE
+        ↓
+TRAJECTORY-LEVEL UNCERTAINTY
+```
+
+The held-out benchmark is still synthetic methodology. It does not establish biological validity.
+
+[Held-out evaluation →](src/ceh/heldout.py) · [Experiment 016 →](experiments/016_heldout_calibration.py)
+
 ## 🚀 Roadmap
 
 **01** Program definition  
