@@ -1,232 +1,274 @@
-# Cellular Event Horizon (CEH)
+<div align="center">
+
+# ⟐ Cellular Event Horizon
 
 ### A computational framework for studying emergent cellular state transitions
 
-**Research prototype · Python · Hypothesis-driven · Falsifiable**
+![Research](https://img.shields.io/badge/research-hypothesis--driven-67e8e2?style=for-the-badge)
+![Python](https://img.shields.io/badge/python-%3E%3D3.10-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-d8c27c?style=for-the-badge)
 
-> **Core question:** Can a measurable region of cellular state-space exist where individually subtle changes become collectively directional and converge toward an emergent cellular state?
+</div>
+
+<p align="center">
+  <img src="docs/assets/ceh-hero.svg" alt="Cellular Event Horizon scientific visualization" width="100%">
+</p>
+
+> **Research question**
+>
+> **Can a measurable region of cellular state-space exist where individually subtle changes become collectively directional and converge toward an emergent cellular state?**
 
 ---
 
-## Concept
+## 🧬 The idea
 
-Most cellular analyses describe **where a cell is**.
+A conventional snapshot asks:
 
-CEH focuses on **how the cell is moving**.
+**“What state is this cell in?”**
 
-`state(t0) → state(t1) → state(t2) → ... → state(tn)`
+CEH asks a different question:
 
-The proposed **Cellular Event Horizon** is not a biomarker, diagnosis, or binary label. It is a candidate dynamic region in state-space where several signals may become jointly detectable:
+**“Where is this cell going — and does its trajectory begin to reveal a transition before the new state becomes obvious?”**
 
-| Signal | Computational meaning |
+The proposed **Cellular Event Horizon** is a computational region in dynamic state-space where multiple weak signals may become jointly structured:
+
+| Biological / dynamical signal | Computational interpretation |
 |---|---|
-| **Drift** | Departure from a reference cellular regime |
-| **Directionality** | Persistence of movement through state-space |
-| **Acceleration** | Change in the rate or direction of movement |
-| **Convergence** | Independent trajectories approaching a common region |
-| **Emergence** | Appearance of a new local state configuration |
+| 🧬 **State** | Multidimensional representation of a cell |
+| ↗ **Drift** | Departure from a reference regime |
+| ➜ **Directionality** | Persistence of movement through state-space |
+| ∿ **Acceleration** | Change in the dynamics of movement |
+| ⟿ **Convergence** | Independent trajectories approaching a common region |
+| ✦ **Emergence** | Formation of a new local state configuration |
 
-The hypothesis is that the combination of these signals may contain information about an approaching cellular state transition that is not recoverable from a single snapshot.
+**CEH is a hypothesis, not an established biological phenomenon.**
 
 ---
 
-## The CEH pipeline
+## ◉ From cell state to cellular trajectory
 
 ```
-Observations
-     │
-     ▼
-Cell representation
-     │
-     ▼
-Dynamic state-space
-     │
-     ▼
-Temporal trajectory
-     │
-     ├── Drift
-     ├── Directionality
-     └── Acceleration
-     │
-     ▼
-Multi-trajectory convergence
-     │
-     ▼
-Candidate Event Horizon
-     │
-     ▼
-Prospective evaluation
-     │
-     ▼
-Null models + statistical validation
-     │
-     ▼
-Reproducible evidence
+        CELLULAR STATE-SPACE
+               │
+               ▼
+       ┌─────────────────┐
+       │  x₀  →  x₁  → x₂│
+       └─────────────────┘
+          ↘    ↘    ↘
+           trajectory
+               │
+      ┌────────┼────────┐
+      ▼        ▼        ▼
+    drift   direction  acceleration
+      └────────┼────────┘
+               ▼
+        convergence field
+               │
+               ▼
+      ◉ CANDIDATE HORIZON
+               │
+               ▼
+         emergent state
+```
+
+The important object is therefore not only the endpoint.
+
+It is the **geometry and temporal structure of the path**.
+
+---
+
+## 🧫 A cellular system, treated as a dynamical system
+
+Conceptually, a cell is represented as:
+
+```
+xₜ ∈ ℝᵈ
+
+X = {x₀, x₁, …, xₜ}
+
+vₜ = xₜ − xₜ₋₁
+
+aₜ = vₜ − vₜ₋₁
+```
+
+The candidate horizon combines measurable properties of the trajectory:
+
+```
+Hₜ = f(Dₜ, Qₜ, Aₜ, Cₜ)
+```
+
+where:
+
+- **Dₜ** = drift
+- **Qₜ** = directional persistence
+- **Aₜ** = acceleration
+- **Cₜ** = convergence
+
+The exact function is deliberately kept transparent in v0.1.
+
+---
+
+## 🧪 The experiment that matters
+
+### Prospective evaluation
+
+At time **T**, CEH is allowed to see only:
+
+```
+x₀ ── x₁ ── x₂ ── ... ── xₜ
+                         │
+                  TEMPORAL BOUNDARY
+                         │
+                         ✕
+                  xₜ₊₁ ... xₜ₊ₖ
+```
+
+The future is **not** allowed to influence the candidate horizon.
+
+It becomes the evaluation target.
+
+> **Does pre-transition trajectory information contain signal beyond what a snapshot-only model can recover?**
+
+This is the central scientific challenge.
+
+---
+
+## 🔬 Falsification architecture
+
+CEH is deliberately built so that the hypothesis can fail.
+
+```
+                OBSERVED WORLD
+                      │
+          ┌───────────┴───────────┐
+          ▼                       ▼
+    temporal order           null worlds
+          │                       │
+          ▼                       ├─ time shuffle
+    CEH trajectory                ├─ identity permutation
+          │                       ├─ noise / missingness
+          ▼                       └─ no-transition controls
+   candidate horizon
+          │
+          ▼
+   ┌─────────────────┐
+   │ snapshot-only   │
+   │     baseline    │
+   └────────┬────────┘
+            ▼
+      effect + uncertainty
+            │
+            ▼
+       reproducible evidence
+```
+
+A positive-looking signal that disappears under appropriate controls is not treated as evidence for CEH.
+
+A robust negative result is scientifically useful.
+
+---
+
+## 🧬 Biological interpretation — carefully bounded
+
+The framework is intentionally domain-agnostic.
+
+Potential future applications may include the study of:
+
+**cell transformation · resistance · differentiation · inflammatory transitions · aging · reprogramming · stimulus response**
+
+These are **research directions**, not demonstrated applications of CEH.
+
+The repository currently makes **no diagnostic, prognostic, therapeutic, or clinical claim**.
+
+---
+
+## 🧭 Repository architecture
+
+```
+Cellular Event Horizon
+│
+├── 🧠 src/ceh/
+│   ├── dynamics.py       → velocity / acceleration / drift
+│   ├── trajectory.py     → trajectory features
+│   ├── convergence.py    → multi-trajectory geometry
+│   ├── horizon.py        → candidate horizon components
+│   ├── nulls.py          → null-model machinery
+│   ├── prospective.py    → temporal boundary
+│   └── synthetic.py      → controlled worlds
+│
+├── 🧪 experiments/
+│   ├── 001_temporal_falsification.py
+│   ├── 002_convergence_null.py
+│   └── 003_prospective_boundary.py
+│
+├── 🧬 docs/
+│   ├── hypothesis.md
+│   ├── mathematical-framework.md
+│   ├── cellular-event-horizon.md
+│   ├── convergence-null-model.md
+│   ├── prospective-horizon.md
+│   ├── validation-protocol.md
+│   └── research-roadmap.md
+│
+└── 🧫 tests/
+    ├── test_core.py
+    ├── test_convergence.py
+    └── test_prospective.py
 ```
 
 ---
 
-## The critical experiment
+## 📐 Research principles
 
-The strongest version of CEH is **prospective**.
-
-At a cutoff time **T**, the representation may use only:
-
-`x₀ ... xₜ`
-
-The future:
-
-`xₜ₊₁ ... xₜ₊ₖ`
-
-is reserved exclusively as an evaluation target.
-
-The central test becomes:
-
-> **Does information available before a transition contain a measurable CEH signal beyond what a snapshot-only model can recover?**
-
-This constraint is essential because a retrospective system can describe a transition after seeing it. CEH is designed to test whether the signal can be identified without future-state leakage.
+| Principle | CEH implementation |
+|---|---|
+| **Temporal integrity** | Future observations never enter cutoff features |
+| **Falsifiability** | Explicit null worlds and failure criteria |
+| **Transparency** | Interpretable v0.1 components |
+| **Reproducibility** | Tests, deterministic controls and documented experiments |
+| **Baseline challenge** | Snapshot-only comparison is required |
+| **Uncertainty** | Statistical inference is treated as a first-class layer |
+| **Scientific restraint** | No biological or clinical conclusion without evidence |
 
 ---
 
-## Falsification first
+## 🚀 Research roadmap
 
-CEH is not designed to prove its own hypothesis.
+**01 · Formalization** → mathematical definition  
+**02 · Synthetic worlds** → controlled transitions + nulls  
+**03 · Baselines** → snapshot vs temporal information  
+**04 · Prospective testing** → pre-transition signal  
+**05 · Biological benchmarks** → public datasets  
+**06 · Multimodal dynamics** → independent evidence streams  
+**07 · Independent replication** → frozen method / unseen data
 
-A meaningful result must survive progressively harder controls:
+---
 
-- synthetic null worlds;
-- temporal shuffling;
-- trajectory-identity permutation;
-- noise and missing observations;
+## 📊 Current status
+
+**v0.1 · Research foundation**
+
+The current repository establishes the computational skeleton.
+
+The next meaningful milestone is **not a larger neural network**.
+
+It is stronger evidence:
+
+- repeated permutation null distributions;
 - snapshot-only baselines;
-- parameter sensitivity;
-- independent random seeds;
-- held-out datasets;
+- effect sizes and uncertainty;
+- robustness to noise and missingness;
+- controlled transition benchmarks;
+- evaluation on appropriate public biological datasets;
 - independent replication.
 
-A negative result is a valid scientific outcome.
-
 ---
 
-## Repository
+<div align="center">
 
-```
-src/ceh/
-├── dynamics.py       # drift, velocity and acceleration
-├── trajectory.py     # trajectory-level features
-├── convergence.py    # multi-trajectory convergence
-├── horizon.py        # candidate horizon components
-├── nulls.py          # temporal and identity null models
-├── prospective.py    # strict past/future separation
-└── synthetic.py      # controlled synthetic worlds
+### ⟐ Define · Measure · Falsify · Reproduce ⟐
 
-experiments/
-├── 001_temporal_falsification.py
-├── 002_convergence_null.py
-└── 003_prospective_boundary.py
+**Cellular Event Horizon (CEH)**  
+*Research prototype — computational hypothesis*
 
-docs/
-├── hypothesis.md
-├── mathematical-framework.md
-├── cellular-event-horizon.md
-├── convergence-null-model.md
-├── prospective-horizon.md
-├── validation-protocol.md
-├── research-roadmap.md
-└── visual-identity.md
-
-tests/
-└── ...
-```
-
----
-
-## Research roadmap
-
-**01 — Formalization**  
-Define the state representation, geometry, horizon criteria and uncertainty.
-
-**02 — Synthetic falsification**  
-Build controlled worlds with known transitions and explicit null worlds.
-
-**03 — Benchmarking**  
-Compare CEH features against snapshot-only and established trajectory-analysis baselines.
-
-**04 — Prospective evaluation**  
-Test whether pre-transition information carries signal about a later transition.
-
-**05 — Biological datasets**  
-Evaluate on public datasets with appropriate temporal or experimentally induced state transitions.
-
-**06 — Multimodal extension**  
-Investigate whether independent modalities provide convergent evidence for the same transition geometry.
-
-**07 — Independent replication**  
-Freeze the method and evaluate it on data not used during development.
-
----
-
-## Scientific boundaries
-
-CEH currently makes **no clinical claim**.
-
-It is not:
-
-- a cancer diagnostic;
-- a prognostic system;
-- a treatment recommendation engine;
-- a medical device;
-- a validated clinical biomarker;
-- evidence that a biological "event horizon" physically exists.
-
-The repository is computational infrastructure for testing a hypothesis.
-
----
-
-## Status
-
-**v0.1 — Research foundation**
-
-The objective is not to make an impressive-looking model.
-
-The objective is to determine whether the proposed phenomenon can be **defined, measured, falsified and reproduced**.
-
----
-
-## License
-
-MIT License.
-
-
-## Research figures
-
-### Trajectory and candidate horizon
-
-![CEH trajectory concept](docs/assets/trajectory-horizon.svg)
-
-### Prospective temporal boundary
-
-![Prospective evaluation boundary](docs/assets/prospective-boundary.svg)
-
-These figures are conceptual diagrams of the computational hypothesis. They do not represent measured biological data or clinical performance.
-
-## Reproducibility
-
-The repository is intentionally structured so that scientific claims can be separated from implementation:
-
-- **Core library:** inspectable numerical primitives in `src/ceh/`.
-- **Experiments:** controlled synthetic studies in `experiments/`.
-- **Tests:** executable invariants and expected numerical behavior in `tests/`.
-- **Validation:** explicit null models, prospective boundaries and baseline comparisons in `docs/`.
-- **Citation:** machine-readable metadata in `CITATION.cff`.
-
-Run the test suite locally with:
-
-```bash
-python -m pip install -e ".[dev]"
-pytest
-```
-
-## Research status
-
-No biological conclusion is encoded in the repository at this stage. The next milestone is not a larger model; it is stronger evidence: repeated null distributions, snapshot-only baselines, robustness analysis, and evaluation on appropriate public datasets.
+</div>
