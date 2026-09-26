@@ -1,0 +1,15 @@
+{
+  "primary_endpoint": "trajectory_level_auroc",
+  "primary_method": "ceh",
+  "primary_comparator": "early_warning",
+  "horizon": 30,
+  "window": 5,
+  "alpha": 0.05,
+  "bootstrap_replicates": 2000,
+  "permutation_replicates": 2000,
+  "train_fraction": 0.60,
+  "null_mechanism": "matched_no_transition",
+  "success_rule": "held_out_incremental_signal_with_fdr_adjusted_p_lt_alpha",
+  "status": "pre-specified computational protocol",
+  "interpretation": "A passing computational result is not evidence of biological validity."
+}
