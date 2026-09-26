@@ -196,3 +196,37 @@ The objective is to determine whether the proposed phenomenon can be **defined, 
 ## License
 
 MIT License.
+
+
+## Research figures
+
+### Trajectory and candidate horizon
+
+![CEH trajectory concept](docs/assets/trajectory-horizon.svg)
+
+### Prospective temporal boundary
+
+![Prospective evaluation boundary](docs/assets/prospective-boundary.svg)
+
+These figures are conceptual diagrams of the computational hypothesis. They do not represent measured biological data or clinical performance.
+
+## Reproducibility
+
+The repository is intentionally structured so that scientific claims can be separated from implementation:
+
+- **Core library:** inspectable numerical primitives in `src/ceh/`.
+- **Experiments:** controlled synthetic studies in `experiments/`.
+- **Tests:** executable invariants and expected numerical behavior in `tests/`.
+- **Validation:** explicit null models, prospective boundaries and baseline comparisons in `docs/`.
+- **Citation:** machine-readable metadata in `CITATION.cff`.
+
+Run the test suite locally with:
+
+```bash
+python -m pip install -e ".[dev]"
+pytest
+```
+
+## Research status
+
+No biological conclusion is encoded in the repository at this stage. The next milestone is not a larger model; it is stronger evidence: repeated null distributions, snapshot-only baselines, robustness analysis, and evaluation on appropriate public datasets.
