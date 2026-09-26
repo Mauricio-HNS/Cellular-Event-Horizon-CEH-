@@ -4,8 +4,6 @@ Primary question: does CEH add prospective information beyond snapshot,
 temporal and early-warning representations when each trajectory is one
 independent unit of inference?
 """
-from __future__ import annotations
-
 from dataclasses import dataclass
 import numpy as np
 
@@ -90,9 +88,20 @@ def evaluate_joint_trajectory_level(
         raise ValueError("both transition and no-transition trajectories are required")
 
     rng = np.random.default_rng(seed)
-    order = rng.permutation(len(features))
-    split = int(len(features) * train_fraction)
-    train_idx, test_idx = order[:split], order[split:]
+    # Stratify the trajectory split so the held-out set contains both classes.
+    class_indices = [np.flatnonzero(labels == cls) for cls in (0, 1)]
+    train_parts = []
+    test_parts = []
+    for idx in class_indices:
+        shuffled = rng.permutation(idx)
+        n_train = max(1, int(len(shuffled) * train_fraction))
+        n_train = min(n_train, len(shuffled) - 1)
+        train_parts.append(shuffled[:n_train])
+        test_parts.append(shuffled[n_train:])
+    train_idx = np.concatenate(train_parts)
+    test_idx = np.concatenate(test_parts)
+    train_idx = rng.permutation(train_idx)
+    test_idx = rng.permutation(test_idx)
     if len(np.unique(labels[test_idx])) < 2:
         raise ValueError("test split must contain both trajectory classes")
 
@@ -109,7 +118,7 @@ def evaluate_joint_trajectory_level(
     base_auc = auroc(base_score, y)
     full_auc = auroc(full_score, y)
     base_ap = auprc(base_score, y)
-    full_ap = auprc(y, full_score)
+    full_ap = auprc(full_score, y)
 
     return JointTrajectoryResult(
         baseline_auroc=base_auc,
