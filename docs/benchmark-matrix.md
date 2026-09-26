@@ -31,3 +31,12 @@ Depending on the scientific question:
 - perturbation-response accuracy.
 
 A single leaderboard score is insufficient for a scientific claim.
+
+
+## Factorial robustness extension
+
+The current benchmark implementation extends the matrix across three noise mechanisms, three missingness levels, three state dimensionalities and four observation modalities, while comparing snapshot, temporal-history, early-warning and candidate CEH signals under the same prospective cutoff protocol.
+
+This creates 432 method-condition combinations per trajectory set before aggregation. Transition labels remain independent of the observation transformation.
+
+The extension is explicitly a robustness test, not biological evidence. Future layers must include no-transition controls under the same observation conditions, stable non-normal dynamics, calibration on held-out trajectories, trajectory-level uncertainty and public longitudinal biological datasets with independently defined transitions.
