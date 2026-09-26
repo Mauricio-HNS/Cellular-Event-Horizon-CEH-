@@ -523,6 +523,25 @@ The benchmark is deliberately allowed to fail. A CEH signal is scientifically in
 
 [Read the CEH benchmark protocol →](docs/ceh-benchmark.md)
 
+
+### 🧪 Factorial robustness matrix
+
+The benchmark now expands across observation conditions rather than testing one synthetic trajectory alone:
+
+```text
+TRANSITION
+   ×
+NOISE × MISSINGNESS × DIMENSIONALITY × MODALITY
+   ↓
+SNAPSHOT → TEMPORAL → EARLY-WARNING → CANDIDATE CEH
+```
+
+The first matrix spans Gaussian, heavy-tailed and impulse noise; 0/10/30% missingness; 1D/4D/16D representations; and four observation modalities. This creates 432 method-condition combinations per trajectory set. The transition label remains independent of the observation transformation.
+
+The matrix is explicitly a robustness test, not biological evidence. A signal that disappears under representation changes is treated as representation sensitivity. A signal that survives must still pass no-transition, non-normal, calibration, replication and real-data challenges.
+
+[Read the factorial benchmark protocol →](docs/benchmark-matrix.md)
+
 ## 🚀 Roadmap
 
 **01** Program definition  
