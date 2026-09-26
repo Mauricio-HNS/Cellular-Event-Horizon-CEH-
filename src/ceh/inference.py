@@ -73,7 +73,7 @@ def paired_auc_permutation(
     if not (np.all(np.isfinite(base)) and np.all(np.isfinite(full))):
         raise ValueError("scores must be finite")
 
-    observed = float(auroc(y, full) - auroc(y, base))
+    observed = float(auroc(full, y) - auroc(base, y))
     rng = np.random.default_rng(seed)
     extreme = 0
     for _ in range(replicates):
