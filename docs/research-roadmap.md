@@ -1,48 +1,52 @@
 # Research Roadmap
 
-## 0. Formal hypothesis
-- define the state-space assumptions;
+## 0. Program definition
+- define the Universal Biological Dynamics framework;
+- define state, context, trajectory, transition and intervention objects;
+- establish explicit limits on what can be inferred from each modality.
+
+## 1. Formal hypothesis
 - define candidate horizon components;
 - define uncertainty;
-- define null models before evaluating results.
+- define null models before evaluating results;
+- specify falsification criteria.
 
-## 1. Synthetic falsification
+## 2. Synthetic falsification
 - ordered transition worlds;
 - null worlds;
 - shuffled time;
 - variable noise;
 - missing observations;
 - trajectory branching;
-- multiple independent trajectories.
+- multiple independent trajectories;
+- perturbation-response worlds.
 
-## 2. Baselines
-Compare against:
-- snapshot-only features;
-- simple distance-to-reference models;
-- standard trajectory representations;
-- established trajectory inference methods where appropriate.
+## 3. Baseline challenge
+Compare against snapshot-only models, simple dynamical summaries and established trajectory approaches where appropriate. CEH must demonstrate incremental information rather than novelty by terminology.
 
-The purpose is not to replace existing methods without evidence. CEH must demonstrate incremental information.
+## 4. Prospective evaluation
+At cutoff t, use only observations available through t. Evaluate predictions against future observations or experimentally defined transition outcomes.
 
-## 3. Prospective evaluation
-Given observations only up to time t, test whether CEH features contain information about a later transition.
+## 5. Multimodal state reconstruction
+Test whether independent biological modalities provide convergent evidence about the same transition geometry.
 
-No future observations may influence the representation at t.
+## 6. Biological benchmarks
+Start with public datasets containing defensible temporal structure or experimentally induced transitions. Document acquisition, preprocessing, exclusions and leakage controls.
 
-## 4. Biological datasets
-Use public datasets with documented experimental design. Begin with datasets where temporal structure or experimentally induced state transitions can be defended.
+## 7. Perturbation and causal challenge
+Where experimental data permit, test whether interventions predicted to alter a trajectory actually produce measurable changes. Prediction alone is not causal evidence.
 
-## 5. Multimodal extension
-Investigate whether independent modalities converge on the same candidate transition region.
+## 8. Cross-system generalization
+Evaluate whether learned dynamical signatures transfer across cell types, conditions, datasets and biological scales without silently changing the hypothesis.
 
-## 6. Independent replication
-Freeze the method and test it on data not used during development.
+## 9. Independent replication
+Freeze the method, analysis protocol and decision rules before testing genuinely unseen data.
 
-## 7. Translation
-Only after reproducible computational evidence should biological validation or translational research be considered.
+## 10. Translation
+Only after reproducible computational and experimental evidence should disease-specific, therapeutic or engineering applications be considered.
 
 ### Success criterion
 
-The project succeeds scientifically if the hypothesis becomes clearer through evidence.
+The program succeeds scientifically if evidence clarifies which dynamical principles are real, which are artifacts, and which are system-specific.
 
 A robust negative result is preferable to an unsupported positive claim.
