@@ -100,6 +100,136 @@ The purpose is deliberately adversarial: CEH candidates must add information bey
 
 See [docs/nonlinear-dynamics-lab.md](docs/nonlinear-dynamics-lab.md).
 
+## 🧭 Research logic
+
+CEH is organized as a falsifiable research program, not as a single algorithm.
+
+### 01 — Start with the system
+
+The project begins at the physical and biological layers and moves upward:
+
+```
+PHYSICAL ENVIRONMENT
+        ↓
+MOLECULAR EVENTS
+        ↓
+DNA / CHROMATIN
+        ↓
+NUCLEAR STATE
+        ↓
+CELLULAR STATE
+        ↓
+OBSERVABLE DATA
+```
+
+Not every experiment requires every layer. A layer is introduced when it can be measured, simulated or independently justified.
+
+### 02 — Separate observation from state
+
+Measurements are observations of a potentially hidden state:
+
+`[
+Y_t = h(X_t) + eta_t
+]`
+
+The first question is therefore whether the relevant biological state can be reconstructed well enough to study its dynamics.
+
+### 03 — Model dynamics explicitly
+
+The state may evolve through deterministic, stochastic and intervention-dependent processes:
+
+`[
+dX = f(X,t,u)dt + G(X,t,u)dW_t
+]`
+
+Noise, perturbation and uncertainty are part of the model rather than implementation details.
+
+### 04 — Establish mathematical ground truth
+
+Before interpreting biology, CEH is challenged inside controlled dynamical systems.
+
+The current nonlinear laboratory uses:
+
+`[
+dot{x}=mu-x^2
+]`
+
+This provides known fixed points, stability and a saddle-node bifurcation. The purpose is to test the machinery where the transition mechanism is already known.
+
+### 05 — Challenge CEH against existing signals
+
+CEH must not simply rename established early-warning indicators.
+
+Candidate signals are compared against:
+
+- snapshot state;
+- temporal-history baselines;
+- variance;
+- lag-1 autocorrelation;
+- relaxation dynamics;
+- shuffled-time nulls;
+- no-transition worlds;
+- matched perturbation controls.
+
+### 06 — Add the physical-to-cellular bridge
+
+The multiscale laboratory currently represents:
+
+```
+PERTURBATION
+    ↓
+DAMAGE
+    ↓
+REPAIR
+    ↓
+NUCLEAR STATE
+    ↓
+CELLULAR STATE
+```
+
+This is intentionally phenomenological. It is a computational scaffold, not a validated radiation-transport or radiobiological model.
+
+### 07 — Search for transition geometry
+
+Only after these controls do we ask whether a transition-relevant region exists in latent state space.
+
+A CEH candidate must be:
+
+- prospective;
+- reproducible;
+- robust to noise and missingness;
+- distinguishable from matched null dynamics;
+- informative beyond instantaneous state;
+- tested against alternative explanations.
+
+### 08 — Perturb and close the loop
+
+The research cycle is:
+
+```
+OBSERVE
+   ↓
+REPRESENT
+   ↓
+MODEL
+   ↓
+FALSIFY
+   ↓
+PREDICT
+   ↓
+PERTURB
+   ↓
+REMEASURE
+   ↓
+REVISE
+```
+
+A positive result is not enough. The model must survive competing explanations.
+
+### Central question
+
+> Can a transition-relevant region of biological state space be identified prospectively, and can its information content be demonstrated to exceed what is available from the instantaneous state, established temporal indicators, observation artifacts and matched null dynamics?
+
 ## 🧠 Theoretical depth
 
 CEH is being developed against established frameworks in dynamical systems, stochastic modelling, attractor landscapes, bifurcation theory and single-cell systems biology. These frameworks define the theoretical territory that the hypothesis must confront; they are not claimed as inventions of this project.
