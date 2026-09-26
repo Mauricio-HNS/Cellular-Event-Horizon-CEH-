@@ -230,6 +230,14 @@ Cellular Event Horizon
 
 ---
 
+## 🔬 Evidence architecture
+
+![Evidence architecture](docs/assets/evidence-architecture.svg)
+
+CEH separates **a computational signal from a scientific claim**. A signal first has to be identifiable in controlled worlds, survive temporal and null-model controls, demonstrate incremental information beyond simpler baselines, and eventually reproduce outside the development setting.
+
+This is deliberately stricter than optimizing a single predictive score.
+
 ## 📐 Research principles
 
 | Principle | CEH implementation |
