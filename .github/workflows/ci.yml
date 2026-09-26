@@ -18,3 +18,7 @@ jobs:
       - run: pytest
       - name: Run primary endpoint protocol
         run: PYTHONPATH=src python experiments/025_primary_endpoint.py
+      - name: Run adversarial protocols
+        run: |
+          PYTHONPATH=src python experiments/026_adversarial_geometry_null.py
+          PYTHONPATH=src python experiments/027_representation_matched_null.py
