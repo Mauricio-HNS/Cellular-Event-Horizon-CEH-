@@ -54,6 +54,28 @@ The purpose of this interface is to ask whether physical perturbations can be co
 
 See [docs/nuclear-physics-interface.md](docs/nuclear-physics-interface.md).
 
+## 🛡️ Adversarial mechanisms
+
+A transition detector must also survive processes that **look like transitions but are not the target transition**.
+
+The project now explicitly challenges CEH with:
+
+```
+TRUE TRANSITION
+      vs
+TRANSIENT AMPLIFICATION
+      vs
+NOISE / SPATIAL CLUSTERING
+```
+
+A stable non-normal system can generate large transient excursions while its eigenvalues remain stable, providing an important control against interpreting amplification as bifurcation. Recent work has shown that pseudo-bifurcation-like warning signatures can arise through this mechanism. citeturn0search11
+
+The repository also treats noise distribution as a scientific variable. Classical variance/autocorrelation warning signals can behave differently under non-Gaussian noise, including alpha-stable processes. citeturn0search7
+
+Finally, spatially clustered microscopic events are tested independently from transition labels, motivated by the known spatial clustering of energy deposition and DNA damage in radiation track structure. citeturn0search1turn0search2
+
+See [docs/adversarial-null-mechanisms.md](docs/adversarial-null-mechanisms.md).
+
 ## 🧬 Nonlinear Dynamics Laboratory
 
 ## 🌌 Multiscale physical-to-cellular bridge
