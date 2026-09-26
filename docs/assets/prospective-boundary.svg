@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+<title id="title">Prospective temporal boundary</title>
+<desc id="desc">Past observations are used to compute the candidate horizon features; future observations are held out for evaluation.</desc>
+<rect width="1200" height="360" fill="#07141b"/>
+<text x="70" y="55" fill="#e7f4f6" font-family="sans-serif" font-size="28" font-weight="700">Prospective evaluation boundary</text>
+<rect x="70" y="110" width="610" height="150" rx="18" fill="#102b34"/>
+<rect x="720" y="110" width="410" height="150" rx="18" fill="#1a2025"/>
+<text x="100" y="145" fill="#9ce9ed" font-family="sans-serif" font-size="19">AVAILABLE AT CUTOFF T</text>
+<text x="100" y="190" fill="#e7f4f6" font-family="sans-serif" font-size="22">x₀ … xₜ</text>
+<text x="100" y="228" fill="#9ab1b7" font-family="sans-serif" font-size="17">Features and candidate horizon</text>
+<text x="750" y="145" fill="#f0d28b" font-family="sans-serif" font-size="19">HELD OUT</text>
+<text x="750" y="190" fill="#e7f4f6" font-family="sans-serif" font-size="22">xₜ₊₁ … xₜ₊ₖ</text>
+<text x="750" y="228" fill="#9ab1b7" font-family="sans-serif" font-size="17">Prospective evaluation target</text>
+<path d="M695 92V280" stroke="#54d2d9" stroke-width="3" stroke-dasharray="7 7"/>
+<text x="640" y="310" fill="#54d2d9" font-family="sans-serif" font-size="16">TEMPORAL BOUNDARY</text>
+</svg>
