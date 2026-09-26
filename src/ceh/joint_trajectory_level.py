@@ -23,6 +23,9 @@ class JointTrajectoryResult:
     delta_auprc: float
     n_trajectories: int
     positives: int
+    test_labels: tuple[int, ...]
+    baseline_scores: tuple[float, ...]
+    full_scores: tuple[float, ...]
 
 
 def _feature_vector(x: np.ndarray, scorer, transition_time: int, horizon: int, window: int) -> float:
@@ -103,13 +106,21 @@ def evaluate_joint_trajectory_level(
     full_score = _predict(beta_full, test_full)
     y = labels[test_idx]
 
+    base_auc = auroc(y, base_score)
+    full_auc = auroc(y, full_score)
+    base_ap = auprc(y, base_score)
+    full_ap = auprc(y, full_score)
+
     return JointTrajectoryResult(
-        baseline_auroc=auroc(y, base_score),
-        baseline_auprc=auprc(y, base_score),
-        full_auroc=auroc(y, full_score),
-        full_auprc=auprc(y, full_score),
-        delta_auroc=auroc(y, full_score) - auroc(y, base_score),
-        delta_auprc=auprc(y, full_score) - auprc(y, base_score),
+        baseline_auroc=base_auc,
+        baseline_auprc=base_ap,
+        full_auroc=full_auc,
+        full_auprc=full_ap,
+        delta_auroc=full_auc - base_auc,
+        delta_auprc=full_ap - base_ap,
         n_trajectories=len(test_idx),
         positives=int(y.sum()),
+        test_labels=tuple(int(v) for v in y),
+        baseline_scores=tuple(float(v) for v in base_score),
+        full_scores=tuple(float(v) for v in full_score),
     )
